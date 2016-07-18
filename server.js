@@ -260,14 +260,93 @@ try {
         }
     });
 
-    app.post('/api/getdevicedetails',function (req,res) {
-        if(req.body.imei != null && req.body.imei !=''){
-            var query = client.query("select")
+    // get the device detils with input imei address
+    app.post('/api/getdevicedetails', function (req, res) {
+        if (req.body.imei != null && req.body.imei != '') {
+            var query = client.query("select * from getdevicedetail('" + req.body.imei + "')", function (err, result) {
+                if (err) {
+                    res.send({"error": true, "response": "please enter valid params"}).status(500);
+                } else {
+                    res.send({'error': false, 'response': result.rows});
+
+                }
+            });
         }
 
-    })
+    });
+
+    app.post('/api/getwhitelist', function (req, res) {
+        if (req.body.userid != null && req.body.userid != '') {
+            var query = client.query("select * from getwhitelist('" + req.body.userid + "')", function (err, result) {
+                if (err) {
+                    res.send({"error": true, "response": "please enter valid params"}).status(500);
+
+                } else {
+                    res.send({'error': false, 'response': result.rows});
+
+                }
+            });
 
 
+        } else {
+            res.send({"error": true, "response": "please enter valid params"}).status(500);
+
+        }
+    });
+    app.post('/api/getblacklist', function (req, res) {
+        if (req.body.userid != null && req.body.userid != '') {
+            var query = client.query("select * from getblacklist('" + req.body.userid + "')", function (err, result) {
+                if (err) {
+                    res.send({"error": true, "response": "please enter valid params"}).status(500);
+
+                } else {
+                    res.send({'error': false, 'response': result.rows});
+
+                }
+            });
+
+
+        } else {
+            res.send({"error": true, "response": "please enter valid params"}).status(500);
+
+        }
+    });
+    app.post('/api/getapplist', function (req, res) {
+        if (req.body.userid != null && req.body.userid != '') {
+            var query = client.query("select * from getinstalledapp('" + req.body.userid + "')", function (err, result) {
+                if (err) {
+                    res.send({"error": true, "response": "please enter valid params"}).status(500);
+
+                } else {
+                    res.send({'error': false, 'response': result.rows});
+
+                }
+            });
+
+
+        } else {
+            res.send({"error": true, "response": "please enter valid params"}).status(500);
+
+        }
+    });
+    app.post('/api/completeapplist', function (req, res) {
+        if (req.body.userid != null && req.body.userid != '') {
+            var query = client.query("select * from getapplist('" + req.body.userid + "')", function (err, result) {
+                if (err) {
+                    res.send({"error": true, "response": "please enter valid params"}).status(500);
+
+                } else {
+                    res.send({'error': false, 'response': result.rows});
+
+                }
+            });
+
+
+        } else {
+            res.send({"error": true, "response": "please enter valid params"}).status(500);
+
+        }
+    });
 
 
     function executeQuery(query1) {
