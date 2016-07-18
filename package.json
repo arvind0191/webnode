@@ -1,0 +1,35 @@
+{
+  "name": "mdm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "arvind",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.*",
+    "socket.io": "1.*",
+    "moment": "2.*",
+    "http": "*",
+    "underscore": "*",
+    "body-parser": "*",
+    "multer": "*",
+    "fs": "*",
+    "validatorjs": "*",
+    "bluebird": "*",
+    "bcrypt-nodejs": "*",
+    "striptags": "2.*",
+    "request": "2.*",
+    "jsonwebtoken ": "*",
+    "nodemailer": "*",
+    "nodemailer-smtp-transport": "*",
+    "sequelize": "*",
+    "pg": "*",
+    "pg-hstore": "*",
+    "async": "*",
+    "log4js": "*"
+  }
+}
